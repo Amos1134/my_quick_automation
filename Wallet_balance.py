@@ -58,54 +58,38 @@ print(back_slash)
 
 
 
-import mysql.connector as mariadb
-# import mariadb
-
+import mysql.connector as my_db_con
 import sys
 
-# import sys
-# sys.setrecursionlimit(10**5)
 import numpy as np
 import pandas as pd
-# import schedule
-import datetime as datetime
 import time
-from matplotlib.backends.backend_pdf import PdfPages
-import statistics
-from scipy.stats import pearsonr
 from datetime import datetime
 from datetime import timedelta
-import pytz
-from tzlocal import get_localzone
-local_tz = get_localzone()
-print(local_tz)
-print(pytz.country_timezones["ng"])
-# %matplotlib notebook
-import matplotlib.pyplot as plt
 
 pd.set_option('display.max_rows', 2000)
 pd.set_option('display.max_columns', 70)
 pd.set_option('display.width', 100)
 
-print("Connecting to MariaDB...")
-# Connect to MariaDB Platform
-print("Connecting to MariaDB Platform...")
+print("Connecting to my_db_con...")
+# Connect to my_db_con Platform
+print("Connecting to my_db_con Platform...")
 try:
-    conn = mariadb.connect(
+    conn = my_db_con.connect(
         user=username,
         password=password,
         host=host,
         port=port,
         database=database
     )
-except mariadb.Error as e:
-    print(f"Error connecting to MariaDB Platform: {e}")
+except my_db_con.Error as e:
+    print(f"Error connecting to my_db_con Platform: {e}")
     sys.exit(1)
 
 # Get Cursor
 cur = conn.cursor()
 
-print("Connected to MariaDB Successfull!!!")
+print("Connected to my_db_con Successfull!!!")
 print(" ")
 print("Extracting report from Account Debits...")
 process_start_time1 = datetime.now()
@@ -137,23 +121,23 @@ merchant_balance_final["Platform"] = "First Platform"
 
 try:
 
-    print("Connecting to VEND MariaDB Platform...")
+    print("Connecting to VEND my_db_con Platform...")
     try:
-        conn = mariadb.connect(
+        conn = my_db_con.connect(
             user=username2,
             password=password2,
             host=host2,
             port=port2,
             database=database2
         )
-    except mariadb.Error as e:
-        print(f"Error connecting to MariaDB Platform: {e}")
+    except my_db_con.Error as e:
+        print(f"Error connecting to my_db_con Platform: {e}")
         sys.exit(1)
 
     # Get Cursor
     cur = conn.cursor()
 
-    print("Connected to MariaDB Successfull!!!")
+    print("Connected to my_db_con Successfull!!!")
     print(" ")
     print("Extracting report from Account Debits...")
     process_start_time1 = datetime.now()
@@ -201,23 +185,23 @@ except:
 
 print(vend_merchant_balance)
 
-print("Connecting to Portal MariaDB Platform...")
+print("Connecting to Portal my_db_con Platform...")
 try:
-    conn = mariadb.connect(
+    conn = my_db_con.connect(
         user=username3,
         password=password3,
         host=host3,
         port=port3,
         database=database3
     )
-except mariadb.Error as e:
-    print(f"Error connecting to MariaDB Platform: {e}")
+except my_db_con.Error as e:
+    print(f"Error connecting to my_db_con Platform: {e}")
     sys.exit(1)
 
 # Get Cursor
 cur = conn.cursor()
 
-print("Connected to MariaDB Successfull!!!")
+print("Connected to my_db_con Successfull!!!")
 print(" ")
 print("Extracting report from Account Debits...")
 process_start_time1 = datetime.now()
